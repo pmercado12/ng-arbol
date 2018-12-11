@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let elemento of elementos">
+    <button type="button" (click)="abrir(elemento)">+</button>
+    {{elemento.descripcion}}
+    <app-arbol [config]="config" [elementos]="elemento.lista" (desplegar)="abrir($event)"></app-arbol>
+  </li>
+</ul>
