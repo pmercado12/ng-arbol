@@ -4,7 +4,7 @@
     <button type="button" (click)="abrir(elemento)" *ngIf="elemento.lista.length==0">+</button>
     <button type="button" (click)="cerrar(elemento)" *ngIf="elemento.lista.length>0">-</button>
     {{elemento.descripcion}}
-    {{elementos.length}}
+    {{config.nivel}}
     <app-arbol [config]="config" [elementos]="elemento.lista" (desplegar)="abrir($event)"></app-arbol>
   </li>
 </ul>

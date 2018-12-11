@@ -12,7 +12,7 @@ export class AppComponent {
     this.getElemento('2', 1),
     this.getElemento('3', 4)
   ];
-  config = {};
+  config = { maximoNivel: 4};
 
   private desplegar(elemento: any) {
     console.log(elemento);

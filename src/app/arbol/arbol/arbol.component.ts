@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-arbol',
@@ -20,6 +21,11 @@ export class ArbolComponent implements OnInit {
   ngOnInit() {
     if (this.elementos.length > 0) {
       this.estaAbierto = true;
+    }
+    if (!this.config.nivel) {
+      this.config.nivel = 1;
+    } else {
+      this.config.nivel++;
     }
   }
 
