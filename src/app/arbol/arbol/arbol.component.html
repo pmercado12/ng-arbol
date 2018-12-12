@@ -1,10 +1,10 @@
 <ul>
   <li *ngFor="let elemento of elementos">
 
-    <button type="button" (click)="abrir(elemento)" *ngIf="elemento.lista.length==0">+</button>
+    <button type="button" (click)="abrir(elemento)" *ngIf="elemento.lista.length==0 && config.nivel < config.maximoNivel">+</button>
     <button type="button" (click)="cerrar(elemento)" *ngIf="elemento.lista.length>0">-</button>
     {{elemento.descripcion}}
     {{config.nivel}}
-    <app-arbol [config]="config" [elementos]="elemento.lista" (desplegar)="abrir($event)"></app-arbol>
+    <app-arbol [config]="configHijo" [elementos]="elemento.lista" (desplegar)="abrir($event)"></app-arbol>
   </li>
 </ul>

@@ -16,16 +16,19 @@ export class ArbolComponent implements OnInit {
   private desplegarArbol: EventEmitter<any> = new EventEmitter();
 
   private estaAbierto: boolean = false;
+  private configHijo: any;
   constructor() { }
 
   ngOnInit() {
     if (this.elementos.length > 0) {
       this.estaAbierto = true;
     }
-    if (!this.config.nivel) {
-      this.config.nivel = 1;
-    } else {
-      this.config.nivel++;
+    if (this.config) {
+      this.configHijo = Object.assign({}, this.config);
+      if (!this.config.nivel) {
+        this.config.nivel = 1;
+      }
+      this.configHijo.nivel = this.config.nivel + 1;
     }
   }
 
