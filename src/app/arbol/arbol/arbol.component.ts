@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { of } from 'rxjs';
+import { ConfigArbol } from '../model/config.model';
 
 @Component({
   selector: 'app-arbol',
@@ -11,12 +12,12 @@ export class ArbolComponent implements OnInit {
   @Input('elementos')
   private elementos: any[];
   @Input('config')
-  private config: any;
+  private config: ConfigArbol;
   @Output('desplegar')
   private desplegarArbol: EventEmitter<any> = new EventEmitter();
 
   private estaAbierto: boolean = false;
-  private configHijo: any;
+  private configHijo: ConfigArbol;
   constructor() { }
 
   ngOnInit() {
