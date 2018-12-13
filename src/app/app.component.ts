@@ -18,6 +18,7 @@ export class AppComponent {
     this.config = new ConfigArbol();
     this.config.maximoNivel = 5;
     this.config.descripcionElemento = "descItem";
+    this.config.descripcionLista = "listaItems";
   }
 
   private desplegar(elemento: any) {
@@ -31,7 +32,7 @@ export class AppComponent {
     } else {
       respuesta = this.getElemento(elemento[this.config.descripcionElemento], Math.floor(Math.random() * 6) + 1);
     }
-    elemento.lista = respuesta.lista;
+    elemento[this.config.descripcionLista] = respuesta[this.config.descripcionLista];
   }
 
   private getElemento(codigo: string, nroElementos: number) {
@@ -39,12 +40,12 @@ export class AppComponent {
     for (let i = 1; i <= nroElementos; i++) {
       lista.push({
         descItem: codigo + '.' + i,
-        lista: []
+        listaItems: []
       });
     }
     return {
       descItem: codigo,
-      lista: lista
+      listaItems: lista
     };
   }
 }

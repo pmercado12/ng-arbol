@@ -38,20 +38,7 @@ export class ArbolComponent implements OnInit {
   }
 
   private cerrar(elemento) {
-    elemento.lista = [];
+    elemento[this.config.descripcionLista] = [];
     this.estaAbierto = false;
   }
-
-
-
-
-  /*
-  [
-    {
-
-    }
-  ]
-
-  */
-
 }
