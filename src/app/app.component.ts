@@ -17,18 +17,19 @@ export class AppComponent {
   constructor() {
     this.config = new ConfigArbol();
     this.config.maximoNivel = 5;
+    this.config.descripcionElemento = "descItem";
   }
 
   private desplegar(elemento: any) {
     let respuesta;
     if (elemento.descripcion == "1") {
-      respuesta = this.getElemento(elemento.descripcion, 0);
+      respuesta = this.getElemento(elemento[this.config.descripcionElemento], 0);
     } else if (elemento.descripcion == "2") {
-      respuesta = this.getElemento(elemento.descripcion, 1);
+      respuesta = this.getElemento(elemento[this.config.descripcionElemento], 1);
     } else if (elemento.descripcion == "3") {
-      respuesta = this.getElemento(elemento.descripcion, 4);
+      respuesta = this.getElemento(elemento[this.config.descripcionElemento], 4);
     } else {
-      respuesta = this.getElemento(elemento.descripcion, Math.floor(Math.random() * 6) + 1);
+      respuesta = this.getElemento(elemento[this.config.descripcionElemento], Math.floor(Math.random() * 6) + 1);
     }
     elemento.lista = respuesta.lista;
   }
@@ -37,12 +38,12 @@ export class AppComponent {
     let lista = [];
     for (let i = 1; i <= nroElementos; i++) {
       lista.push({
-        descripcion: codigo + '.' + i,
+        descItem: codigo + '.' + i,
         lista: []
       });
     }
     return {
-      descripcion: codigo,
+      descItem: codigo,
       lista: lista
     };
   }
